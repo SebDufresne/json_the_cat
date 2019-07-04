@@ -15,4 +15,12 @@ describe('fetchBreedDescription', () => {
       done();
     });
   });
+  it('returns an error when the race is unknown.', (done) => {
+    fetchBreedDescription('blahblah', (err, desc) => {
+      // we expect no error for this scenario
+      assert.exists(err);
+      assert.equal(undefined, desc);
+      done();
+    });
+  });
 });
